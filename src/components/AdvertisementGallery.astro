@@ -1,0 +1,420 @@
+---
+// Advertisement Gallery Images
+// Neon Signs Tab
+import neon1 from "../assets/folder_pages/INDOOR SIGNS/Neon Signs/WhatsApp Image 2023-07-24 at 1.20.26 PM.jpeg";
+import neon2 from "../assets/folder_pages/INDOOR SIGNS/Neon Signs/WhatsApp Image 2023-07-25 at 11.17.49 AM.jpeg";
+import neon3 from "../assets/folder_pages/INDOOR SIGNS/Neon Signs/WhatsApp Image 2023-07-25 at 11.31.47 AM (1).jpeg";
+import neon4 from "../assets/folder_pages/INDOOR SIGNS/Neon Signs/WhatsApp Image 2023-07-25 at 11.31.47 AM.jpeg";
+import neonOutdoor from "../assets/folder_pages/OUTDOOR  BUILDING SIGNS/Neon Signs/WhatsApp Image 2023-07-24 at 1.20.25 PM.jpeg";
+
+// 3D Letters Tab
+import channelLetters1 from "../assets/folder_pages/OUTDOOR  BUILDING SIGNS/Channel Letters/WhatsApp Image 2023-07-24 at 1.21.00 PM (2).jpeg";
+import illuminated3D1 from "../assets/folder_pages/OUTDOOR  BUILDING SIGNS/3D Illuminated Letters/WhatsApp Image 2023-07-24 at 1.21.00 PM.jpeg";
+import acpSign from "../assets/folder_pages/OUTDOOR  BUILDING SIGNS/ACP  Fabricated Signage/WhatsApp Image 2023-07-24 at 1.21.01 PM.jpeg";
+import storeFront from "../assets/folder_pages/OUTDOOR  BUILDING SIGNS/Store Front Signage/WhatsApp Image 2023-07-24 at 1.21.02 PM.jpeg";
+import metalSign from "../assets/folder_pages/OUTDOOR  BUILDING SIGNS/Metal Signs/WhatsApp Image 2023-07-24 at 1.37.58 PM.jpeg";
+import companySign from "../assets/folder_pages/OUTDOOR  BUILDING SIGNS/Company Signage/WhatsApp Image 2023-07-24 at 1.20.48 PM.jpeg";
+
+// Promotional Tab
+import banner1 from "../assets/folder_pages/PROMOTIONAL SIGNS/Banners & flags/Free-Promotional-Winder-Feather-Flag-Mockup-PSD-Set-4.jpg";
+import banner2 from "../assets/folder_pages/PROMOTIONAL SIGNS/Banners & flags/Print-Impact-2m-3m-4m-Telescopic-Flags-Available-Cheap.jpg";
+import vinylBanner1 from "../assets/folder_pages/PROMOTIONAL SIGNS/Vinyl Banners/Deans-13oz-Vinyl-Banner.jpg";
+import vinylBanner2 from "../assets/folder_pages/PROMOTIONAL SIGNS/Vinyl Banners/vinyl-banner-5.jpg";
+import tradeshow from "../assets/folder_pages/PROMOTIONAL SIGNS/Tradeshow & Media Wall Backdrops/1026053_425760210864215_179456936_o.jpg";
+import teardrop from "../assets/folder_pages/PROMOTIONAL SIGNS/Teardrop Banners & Flags/beach-flag.jpg";
+
+import { Image } from "astro:assets";
+
+const categories = [
+    {
+        id: "neon-sign",
+        label: "Neon Signs",
+        images: [neon1.src, neon2.src, neon3.src, neon4.src, neonOutdoor.src],
+        altTexts: [
+            "Neon Sign Installation",
+            "Custom Neon Sign",
+            "Illuminated Neon Signage",
+            "Neon Sign Display",
+            "Outdoor Neon Sign",
+        ],
+    },
+    {
+        id: "3d-letters",
+        label: "3D Letters",
+        images: [
+            channelLetters1.src,
+            illuminated3D1.src,
+            acpSign.src,
+            storeFront.src,
+            metalSign.src,
+            companySign.src,
+        ],
+        altTexts: [
+            "Channel Letters Signage",
+            "3D Illuminated Letters",
+            "ACP Fabricated Sign",
+            "Store Front 3D Letters",
+            "Metal 3D Letters",
+            "Company 3D Signage",
+        ],
+    },
+    {
+        id: "promotional",
+        label: "Promotional",
+        images: [
+            banner1.src,
+            banner2.src,
+            vinylBanner1.src,
+            vinylBanner2.src,
+            tradeshow.src,
+            teardrop.src,
+        ],
+        altTexts: [
+            "Promotional Feather Flags",
+            "Telescopic Flags",
+            "Vinyl Banner",
+            "Custom Vinyl Banner",
+            "Tradeshow Backdrop",
+            "Teardrop Banner",
+        ],
+    },
+];
+---
+
+<section class="bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row gap-12">
+            <!-- Left Side: Heading -->
+            <div class="md:w-[30%] flex items-start pt-8">
+                <div class="top-24">
+                    <h2
+                        class="text-4xl font-normal text-gray-900 tracking-tight mb-4"
+                    >
+                        Advertisement
+                    </h2>
+                    <p class="text-lg text-gray-600 max-w-xs">
+                        Make your brand shine with our premium signage
+                        solutions. From vibrant neon signs to elegant acrylic
+                        letters, we help you stand out.
+                    </p>
+                    <div class="w-20 h-1 bg-indigo-600 mt-6"></div>
+                </div>
+            </div>
+
+            <!-- Right Side: Tabs and Image Grid -->
+            <div class="md:w-[70%]">
+                <!-- Tabs Navigation -->
+                <div
+                    class="flex space-x-4 mb-8 overflow-x-auto pb-2 border-b border-gray-200"
+                >
+                    {
+                        categories.map((category, index) => (
+                            <button
+                                class={`tab-button px-4 py-2 text-sm font-normal rounded-t-lg transition-colors duration-200 focus:outline-none whitespace-nowrap ${index === 0 ? "text-indigo-600 border-b-2 border-indigo-600 bg-indigo-50" : "text-gray-500 hover:text-gray-700 hover:bg-gray-100"}`}
+                                data-target={category.id}
+                            >
+                                {category.label}
+                            </button>
+                        ))
+                    }
+                </div>
+
+                <!-- Tab Contents -->
+                <div class="relative h-[600px] overflow-hidden">
+                    {
+                        categories.map((category, index) => (
+                            <div
+                                id={category.id}
+                                class={`tab-content absolute inset-0 transition-opacity duration-300 ${index === 0 ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
+                            >
+                                <div class="flex overflow-x-auto snap-x snap-mandatory sm:grid sm:grid-cols-2 md:grid-cols-3 gap-6 pb-4 sm:pb-0 hide-scrollbar">
+                                    {category.images.map((image, imgIndex) => (
+                                        <div
+                                            class="group relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 aspect-[4/3] cursor-pointer gallery-image flex-shrink-0 w-[85vw] sm:w-auto snap-center"
+                                            data-category={category.id}
+                                            data-index={imgIndex}
+                                        >
+                                            <img
+                                                src={image}
+                                                alt={
+                                                    category.altTexts[imgIndex]
+                                                }
+                                                class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                                            />
+                                            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 flex items-center justify-center">
+                                                <svg
+                                                    class="w-12 h-12 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                                                    fill="none"
+                                                    stroke="currentColor"
+                                                    viewBox="0 0 24 24"
+                                                >
+                                                    <path
+                                                        stroke-linecap="round"
+                                                        stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"
+                                                    />
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        ))
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal/Lightbox -->
+    <div
+        id="advertisement-modal"
+        class="fixed inset-0 bg-black/90 z-50 hidden items-center justify-center p-4"
+    >
+        <button
+            id="close-ad-modal"
+            class="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors z-10"
+        >
+            <svg
+                class="w-8 h-8"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+            >
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
+
+        <button
+            id="prev-ad-image"
+            class="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 transition-colors bg-black/50 hover:bg-black/70 p-3 rounded-full"
+        >
+            <svg
+                class="w-8 h-8"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+            >
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M15 19l-7-7 7-7"></path>
+            </svg>
+        </button>
+
+        <button
+            id="next-ad-image"
+            class="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 transition-colors bg-black/50 hover:bg-black/70 p-3 rounded-full"
+        >
+            <svg
+                class="w-8 h-8"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+            >
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"></path>
+            </svg>
+        </button>
+
+        <div
+            class="max-w-6xl max-h-[90vh] w-full h-full flex flex-col items-center justify-center"
+        >
+            <img
+                id="ad-modal-image"
+                src=""
+                alt=""
+                class="max-w-full max-h-full object-contain rounded-lg"
+            />
+            <p
+                id="ad-modal-caption"
+                class="text-white text-center mt-4 text-lg"
+            >
+            </p>
+        </div>
+    </div>
+</section>
+
+<script>
+    const tabButtons = document.querySelectorAll(".tab-button");
+    const tabContents = document.querySelectorAll(".tab-content");
+
+    tabButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+            const targetId = button.getAttribute("data-target");
+
+            // Update button active state
+            tabButtons.forEach((btn) => {
+                if (btn === button) {
+                    btn.classList.add(
+                        "text-indigo-600",
+                        "border-b-2",
+                        "border-indigo-600",
+                        "bg-indigo-50",
+                    );
+                    btn.classList.remove(
+                        "text-gray-500",
+                        "hover:text-gray-700",
+                        "hover:bg-gray-100",
+                    );
+                } else {
+                    btn.classList.remove(
+                        "text-indigo-600",
+                        "border-b-2",
+                        "border-indigo-600",
+                        "bg-indigo-50",
+                    );
+                    btn.classList.add(
+                        "text-gray-500",
+                        "hover:text-gray-700",
+                        "hover:bg-gray-100",
+                    );
+                }
+            });
+
+            // Toggle visibility using opacity only
+            tabContents.forEach((content) => {
+                if (content.id === targetId) {
+                    content.classList.remove("opacity-0");
+                    content.classList.add("opacity-100");
+                    content.classList.remove("pointer-events-none");
+                    content.classList.add("pointer-events-auto");
+                } else {
+                    content.classList.remove("opacity-100");
+                    content.classList.add("opacity-0");
+                    content.classList.remove("pointer-events-auto");
+                    content.classList.add("pointer-events-none");
+                }
+            });
+        });
+    });
+
+    // Modal functionality
+    const galleryImages = document.querySelectorAll(".gallery-image");
+    const modal = document.getElementById("advertisement-modal");
+    const modalImage = document.getElementById(
+        "ad-modal-image",
+    ) as HTMLImageElement;
+    const modalCaption = document.getElementById("ad-modal-caption");
+    const closeBtn = document.getElementById("close-ad-modal");
+    const prevBtn = document.getElementById("prev-ad-image");
+    const nextBtn = document.getElementById("next-ad-image");
+
+    // Build images array from all categories
+    const categories = [
+        {
+            id: "neon-sign",
+            images: [] as { src: string; alt: string }[],
+        },
+        {
+            id: "3d-letters",
+            images: [] as { src: string; alt: string }[],
+        },
+        {
+            id: "promotional",
+            images: [] as { src: string; alt: string }[],
+        },
+    ];
+
+    galleryImages.forEach((imgContainer) => {
+        const imgElement = imgContainer.querySelector(
+            "img",
+        ) as HTMLImageElement;
+        const category = imgContainer.getAttribute("data-category");
+        const categoryObj = categories.find((c) => c.id === category);
+        if (categoryObj && imgElement) {
+            categoryObj.images.push({
+                src: imgElement.src,
+                alt: imgElement.alt,
+            });
+        }
+    });
+
+    let currentCategory = "neon-sign";
+    let currentIndex = 0;
+
+    function openModal(category: string, index: number) {
+        currentCategory = category;
+        currentIndex = index;
+        updateModalImage();
+        modal?.classList.remove("hidden");
+        modal?.classList.add("flex");
+        document.body.style.overflow = "hidden";
+    }
+
+    function closeModal() {
+        modal?.classList.add("hidden");
+        modal?.classList.remove("flex");
+        document.body.style.overflow = "";
+    }
+
+    function updateModalImage() {
+        const categoryObj = categories.find((c) => c.id === currentCategory);
+        if (
+            modalImage &&
+            modalCaption &&
+            categoryObj &&
+            categoryObj.images[currentIndex]
+        ) {
+            modalImage.src = categoryObj.images[currentIndex].src;
+            modalImage.alt = categoryObj.images[currentIndex].alt;
+            modalCaption.textContent = categoryObj.images[currentIndex].alt;
+        }
+    }
+
+    function showPrevImage() {
+        const categoryObj = categories.find((c) => c.id === currentCategory);
+        if (categoryObj) {
+            currentIndex =
+                (currentIndex - 1 + categoryObj.images.length) %
+                categoryObj.images.length;
+            updateModalImage();
+        }
+    }
+
+    function showNextImage() {
+        const categoryObj = categories.find((c) => c.id === currentCategory);
+        if (categoryObj) {
+            currentIndex = (currentIndex + 1) % categoryObj.images.length;
+            updateModalImage();
+        }
+    }
+
+    // Event listeners for gallery images
+    galleryImages.forEach((img) => {
+        img.addEventListener("click", () => {
+            const category = img.getAttribute("data-category") || "neon-sign";
+            const index = parseInt(img.getAttribute("data-index") || "0");
+            openModal(category, index);
+        });
+    });
+
+    closeBtn?.addEventListener("click", closeModal);
+    prevBtn?.addEventListener("click", showPrevImage);
+    nextBtn?.addEventListener("click", showNextImage);
+
+    // Close modal on background click
+    modal?.addEventListener("click", (e) => {
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
+
+    // Keyboard navigation
+    document.addEventListener("keydown", (e) => {
+        if (!modal?.classList.contains("hidden")) {
+            if (e.key === "Escape") closeModal();
+            if (e.key === "ArrowLeft") showPrevImage();
+            if (e.key === "ArrowRight") showNextImage();
+        }
+    });
+</script>

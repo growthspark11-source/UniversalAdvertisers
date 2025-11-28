@@ -1,0 +1,409 @@
+---
+// Outdoor Signs Gallery Images
+import channelLetters from "../assets/folder_pages/OUTDOOR  BUILDING SIGNS/Channel Letters/WhatsApp Image 2023-07-24 at 1.21.00 PM (2).jpeg";
+import illuminated3D from "../assets/folder_pages/OUTDOOR  BUILDING SIGNS/3D Illuminated Letters/WhatsApp Image 2023-07-24 at 1.21.00 PM.jpeg";
+import storeFront from "../assets/folder_pages/OUTDOOR  BUILDING SIGNS/Store Front Signage/WhatsApp Image 2023-07-24 at 1.21.02 PM.jpeg";
+import acpFabricated from "../assets/folder_pages/OUTDOOR  BUILDING SIGNS/ACP  Fabricated Signage/WhatsApp Image 2023-07-24 at 1.21.01 PM.jpeg";
+import lightbox from "../assets/folder_pages/OUTDOOR  BUILDING SIGNS/Lightboxes/WhatsApp Image 2023-07-24 at 2.03.57 PM (2).jpeg";
+import windowDecals from "../assets/folder_pages/OUTDOOR  BUILDING SIGNS/Window Decals/glass-partition-decorated-using-printed-glass-film-1024x768.jpeg";
+import oneWayVision from "../assets/folder_pages/OUTDOOR  BUILDING SIGNS/One Way Vision Windows/WhatsApp Image 2023-07-24 at 2.07.02 PM.jpeg";
+import digitalDisplay from "../assets/folder_pages/OUTDOOR  BUILDING SIGNS/Digital Signs and Displays/WhatsApp Image 2023-07-24 at 1.38.00 PM.jpeg";
+import metalSign from "../assets/folder_pages/OUTDOOR  BUILDING SIGNS/Metal Signs/WhatsApp Image 2023-07-24 at 1.37.58 PM.jpeg";
+import windowGraphics from "../assets/folder_pages/OUTDOOR  BUILDING SIGNS/Window Graphics/2-full-colour-graphics-menu-image.jpg";
+import ledBacklit from "../assets/folder_pages/OUTDOOR  BUILDING SIGNS/LED Backlit Signs/WhatsApp Image 2023-07-24 at 2.03.57 PM (1).jpeg";
+import companySign from "../assets/folder_pages/OUTDOOR  BUILDING SIGNS/Company Signage/WhatsApp Image 2023-07-24 at 1.20.48 PM.jpeg";
+
+import { Image } from "astro:assets";
+
+const categories = [
+    {
+        id: "3d-channel",
+        label: "3D Letters & Channel",
+        images: [
+            channelLetters.src,
+            illuminated3D.src,
+            acpFabricated.src,
+            storeFront.src,
+            metalSign.src,
+            companySign.src,
+        ],
+        altTexts: [
+            "Channel Letters Signage",
+            "3D Illuminated Letters",
+            "ACP Fabricated Signage",
+            "Store Front Signage",
+            "Metal Sign",
+            "Company Signage",
+        ],
+    },
+    {
+        id: "digital-led",
+        label: "Digital & LED",
+        images: [digitalDisplay.src, ledBacklit.src, lightbox.src],
+        altTexts: ["Digital Display Sign", "LED Backlit Sign", "Lightbox Sign"],
+    },
+    {
+        id: "window-graphics",
+        label: "Window Graphics",
+        images: [windowDecals.src, oneWayVision.src, windowGraphics.src],
+        altTexts: ["Window Decals", "One Way Vision Window", "Window Graphics"],
+    },
+];
+---
+
+<section class="bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row gap-12">
+            <!-- Left Side: Heading -->
+            <div class="md:w-[30%] flex items-start pt-8">
+                <div class="top-24">
+                    <h2
+                        class="text-4xl font-normal text-gray-900 tracking-tight mb-4"
+                    >
+                        Outdoor Signs
+                    </h2>
+                    <p class="text-lg text-gray-600 max-w-xs">
+                        Make a bold statement with our premium outdoor signage.
+                        From illuminated channel letters to eye-catching
+                        storefront displays and digital signs.
+                    </p>
+                    <div class="w-20 h-1 bg-indigo-600 mt-6"></div>
+                </div>
+            </div>
+
+            <!-- Right Side: Tabs and Image Grid -->
+            <div class="md:w-[70%]">
+                <!-- Tabs Navigation -->
+                <div
+                    class="flex space-x-4 mb-8 overflow-x-auto pb-2 border-b border-gray-200"
+                >
+                    {
+                        categories.map((category, index) => (
+                            <button
+                                class={`exterior-tab-button px-4 py-2 text-sm font-normal rounded-t-lg transition-colors duration-200 focus:outline-none whitespace-nowrap ${index === 0 ? "text-indigo-600 border-b-2 border-indigo-600 bg-indigo-50" : "text-gray-500 hover:text-gray-700 hover:bg-gray-100"}`}
+                                data-target={category.id}
+                            >
+                                {category.label}
+                            </button>
+                        ))
+                    }
+                </div>
+
+                <!-- Tab Contents -->
+                <div class="relative h-[600px] overflow-hidden">
+                    {
+                        categories.map((category, index) => (
+                            <div
+                                id={category.id}
+                                class={`exterior-tab-content absolute inset-0 transition-opacity duration-300 ${index === 0 ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
+                            >
+                                <div class="flex overflow-x-auto snap-x snap-mandatory sm:grid sm:grid-cols-2 md:grid-cols-3 gap-6 pb-4 sm:pb-0 hide-scrollbar">
+                                    {category.images.map((image, imgIndex) => (
+                                        <div
+                                            class="group relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 aspect-[4/3] cursor-pointer exterior-gallery-image flex-shrink-0 w-[85vw] sm:w-auto snap-center"
+                                            data-category={category.id}
+                                            data-index={imgIndex}
+                                        >
+                                            <img
+                                                src={image}
+                                                alt={
+                                                    category.altTexts[imgIndex]
+                                                }
+                                                class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                                            />
+                                            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 flex items-center justify-center">
+                                                <svg
+                                                    class="w-12 h-12 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                                                    fill="none"
+                                                    stroke="currentColor"
+                                                    viewBox="0 0 24 24"
+                                                >
+                                                    <path
+                                                        stroke-linecap="round"
+                                                        stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"
+                                                    />
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        ))
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal/Lightbox -->
+    <div
+        id="exterior-modal"
+        class="fixed inset-0 bg-black/90 z-50 hidden items-center justify-center p-4"
+    >
+        <button
+            id="exterior-close-modal"
+            class="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors z-10"
+        >
+            <svg
+                class="w-8 h-8"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+            >
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
+
+        <button
+            id="exterior-prev-image"
+            class="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 transition-colors bg-black/50 hover:bg-black/70 p-3 rounded-full"
+        >
+            <svg
+                class="w-8 h-8"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+            >
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M15 19l-7-7 7-7"></path>
+            </svg>
+        </button>
+
+        <button
+            id="exterior-next-image"
+            class="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 transition-colors bg-black/50 hover:bg-black/70 p-3 rounded-full"
+        >
+            <svg
+                class="w-8 h-8"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+            >
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"></path>
+            </svg>
+        </button>
+
+        <div
+            class="max-w-6xl max-h-[90vh] w-full h-full flex flex-col items-center justify-center"
+        >
+            <img
+                id="exterior-modal-image"
+                src=""
+                alt=""
+                class="max-w-full max-h-full object-contain rounded-lg"
+            />
+            <p
+                id="exterior-modal-caption"
+                class="text-white text-center mt-4 text-lg"
+            >
+            </p>
+        </div>
+    </div>
+</section>
+
+<script>
+    // Tab switching functionality
+    const exteriorTabButtons = document.querySelectorAll(
+        ".exterior-tab-button",
+    );
+    const exteriorTabContents = document.querySelectorAll(
+        ".exterior-tab-content",
+    );
+
+    exteriorTabButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+            const targetId = button.getAttribute("data-target");
+
+            // Update button active state
+            exteriorTabButtons.forEach((btn) => {
+                if (btn === button) {
+                    btn.classList.add(
+                        "text-indigo-600",
+                        "border-b-2",
+                        "border-indigo-600",
+                        "bg-indigo-50",
+                    );
+                    btn.classList.remove(
+                        "text-gray-500",
+                        "hover:text-gray-700",
+                        "hover:bg-gray-100",
+                    );
+                } else {
+                    btn.classList.remove(
+                        "text-indigo-600",
+                        "border-b-2",
+                        "border-indigo-600",
+                        "bg-indigo-50",
+                    );
+                    btn.classList.add(
+                        "text-gray-500",
+                        "hover:text-gray-700",
+                        "hover:bg-gray-100",
+                    );
+                }
+            });
+
+            // Toggle visibility using opacity only
+            exteriorTabContents.forEach((content) => {
+                if (content.id === targetId) {
+                    content.classList.remove("opacity-0");
+                    content.classList.add("opacity-100");
+                    content.classList.remove("pointer-events-none");
+                    content.classList.add("pointer-events-auto");
+                } else {
+                    content.classList.remove("opacity-100");
+                    content.classList.add("opacity-0");
+                    content.classList.remove("pointer-events-auto");
+                    content.classList.add("pointer-events-none");
+                }
+            });
+        });
+    });
+
+    // Modal functionality
+    const exteriorGalleryImages = document.querySelectorAll(
+        ".exterior-gallery-image",
+    );
+    const exteriorModal = document.getElementById("exterior-modal");
+    const exteriorModalImage = document.getElementById(
+        "exterior-modal-image",
+    ) as HTMLImageElement;
+    const exteriorModalCaption = document.getElementById(
+        "exterior-modal-caption",
+    );
+    const exteriorCloseBtn = document.getElementById("exterior-close-modal");
+    const exteriorPrevBtn = document.getElementById("exterior-prev-image");
+    const exteriorNextBtn = document.getElementById("exterior-next-image");
+
+    // Build images array from all categories
+    const categories = [
+        {
+            id: "3d-channel",
+            images: [] as { src: string; alt: string }[],
+        },
+        {
+            id: "digital-led",
+            images: [] as { src: string; alt: string }[],
+        },
+        {
+            id: "window-graphics",
+            images: [] as { src: string; alt: string }[],
+        },
+    ];
+
+    exteriorGalleryImages.forEach((imgContainer) => {
+        const imgElement = imgContainer.querySelector(
+            "img",
+        ) as HTMLImageElement;
+        const category = imgContainer.getAttribute("data-category");
+        const categoryObj = categories.find((c) => c.id === category);
+        if (categoryObj && imgElement) {
+            categoryObj.images.push({
+                src: imgElement.src,
+                alt: imgElement.alt,
+            });
+        }
+    });
+
+    let exteriorCurrentCategory = "3d-channel";
+    let exteriorCurrentIndex = 0;
+
+    function openExteriorModal(category: string, index: number) {
+        exteriorCurrentCategory = category;
+        exteriorCurrentIndex = index;
+        updateExteriorModalImage();
+        exteriorModal?.classList.remove("hidden");
+        exteriorModal?.classList.add("flex");
+        document.body.style.overflow = "hidden";
+    }
+
+    function closeExteriorModal() {
+        exteriorModal?.classList.add("hidden");
+        exteriorModal?.classList.remove("flex");
+        document.body.style.overflow = "";
+    }
+
+    function updateExteriorModalImage() {
+        const categoryObj = categories.find(
+            (c) => c.id === exteriorCurrentCategory,
+        );
+        if (
+            exteriorModalImage &&
+            exteriorModalCaption &&
+            categoryObj &&
+            categoryObj.images[exteriorCurrentIndex]
+        ) {
+            exteriorModalImage.src =
+                categoryObj.images[exteriorCurrentIndex].src;
+            exteriorModalImage.alt =
+                categoryObj.images[exteriorCurrentIndex].alt;
+            exteriorModalCaption.textContent =
+                categoryObj.images[exteriorCurrentIndex].alt;
+        }
+    }
+
+    function showExteriorPrevImage() {
+        const categoryObj = categories.find(
+            (c) => c.id === exteriorCurrentCategory,
+        );
+        if (categoryObj) {
+            exteriorCurrentIndex =
+                (exteriorCurrentIndex - 1 + categoryObj.images.length) %
+                categoryObj.images.length;
+            updateExteriorModalImage();
+        }
+    }
+
+    function showExteriorNextImage() {
+        const categoryObj = categories.find(
+            (c) => c.id === exteriorCurrentCategory,
+        );
+        if (categoryObj) {
+            exteriorCurrentIndex =
+                (exteriorCurrentIndex + 1) % categoryObj.images.length;
+            updateExteriorModalImage();
+        }
+    }
+
+    // Event listeners for gallery images
+    exteriorGalleryImages.forEach((img) => {
+        img.addEventListener("click", () => {
+            const category = img.getAttribute("data-category") || "3d-channel";
+            const index = parseInt(img.getAttribute("data-index") || "0");
+            openExteriorModal(category, index);
+        });
+    });
+
+    exteriorCloseBtn?.addEventListener("click", closeExteriorModal);
+    exteriorPrevBtn?.addEventListener("click", showExteriorPrevImage);
+    exteriorNextBtn?.addEventListener("click", showExteriorNextImage);
+
+    // Close modal on background click
+    exteriorModal?.addEventListener("click", (e) => {
+        if (e.target === exteriorModal) {
+            closeExteriorModal();
+        }
+    });
+
+    // Keyboard navigation
+    document.addEventListener("keydown", (e) => {
+        if (!exteriorModal?.classList.contains("hidden")) {
+            if (e.key === "Escape") closeExteriorModal();
+            if (e.key === "ArrowLeft") showExteriorPrevImage();
+            if (e.key === "ArrowRight") showExteriorNextImage();
+        }
+    });
+</script>

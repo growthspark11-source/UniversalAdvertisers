@@ -1,0 +1,120 @@
+---
+// Full-width video hero banner
+import videoSrc from "../assets/vid.mp4";
+
+const primaryLink = import.meta.env.BASE_URL + "contact";
+const secondaryLink = import.meta.env.BASE_URL + "services";
+---
+
+<section
+    class="relative w-full h-[500px] md:h-[600px] lg:h-[700px] overflow-hidden"
+>
+    <!-- Full-width Video Background -->
+    <video
+        id="hero-video"
+        class="absolute inset-0 w-full h-full object-cover"
+        autoplay
+        muted
+        loop
+        playsinline
+    >
+        <source src={videoSrc} type="video/mp4" />
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Overlay for better text readability -->
+    <div class="absolute inset-0 bg-black/30"></div>
+
+    <!-- Content Overlay -->
+    <div class="relative z-10 h-full flex items-center justify-center">
+        <div
+            class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white"
+        >
+            <h1
+                class="text-4xl md:text-6xl lg:text-7xl font-normal mb-6 drop-shadow-lg"
+            >
+                Universal Advertiser & Printers
+            </h1>
+            <p
+                class="text-xl md:text-2xl lg:text-3xl text-white/90 mb-8 drop-shadow-md"
+            >
+                Creating Impactful Signs Since 2003
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a
+                    href={primaryLink}
+                    class="inline-flex items-center justify-center px-8 py-4 bg-white text-indigo-600 font-normal rounded-full hover:bg-gray-100 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105"
+                >
+                    Get Started
+                </a>
+                <a
+                    href={secondaryLink}
+                    class="inline-flex items-center justify-center px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-normal rounded-full hover:bg-white/20 transition-all duration-300 border-2 border-white/30 hover:border-white/50"
+                >
+                    Our Services
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Play/Pause button -->
+    <button
+        id="hero-video-control"
+        class="absolute bottom-8 right-8 bg-white/90 hover:bg-white text-indigo-600 p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 z-20"
+        aria-label="Play/Pause video"
+    >
+        <svg
+            id="hero-pause-icon"
+            class="w-6 h-6"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+        >
+            <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"></path>
+        </svg>
+        <svg
+            id="hero-play-icon"
+            class="w-6 h-6 hidden"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+        >
+            <path d="M8 5v14l11-7z"></path>
+        </svg>
+    </button>
+
+    <!-- Scroll down indicator -->
+    <div
+        class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 animate-bounce"
+    >
+        <svg
+            class="w-6 h-6 text-white"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+        >
+            <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+        </svg>
+    </div>
+</section>
+
+<script>
+    const video = document.getElementById("hero-video") as HTMLVideoElement;
+    const videoControl = document.getElementById("hero-video-control");
+    const playIcon = document.getElementById("hero-play-icon");
+    const pauseIcon = document.getElementById("hero-pause-icon");
+
+    videoControl?.addEventListener("click", () => {
+        if (video.paused) {
+            video.play();
+            playIcon?.classList.add("hidden");
+            pauseIcon?.classList.remove("hidden");
+        } else {
+            video.pause();
+            playIcon?.classList.remove("hidden");
+            pauseIcon?.classList.add("hidden");
+        }
+    });
+</script>

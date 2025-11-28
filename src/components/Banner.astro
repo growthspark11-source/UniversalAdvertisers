@@ -1,0 +1,214 @@
+---
+// Banner component with video on left and text on right
+import videoSrc from "../assets/vid.mp4";
+---
+
+<section class="w-full">
+    <div class="flex flex-col md:flex-row">
+        <!-- Left Half: Video -->
+        <div class="w-full md:w-1/2 relative">
+            <div
+                class="relative h-[400px] md:h-[600px] lg:h-[700px] overflow-hidden"
+            >
+                <video
+                    id="banner-video"
+                    class="w-full h-full object-cover"
+                    autoplay
+                    muted
+                    loop
+                    playsinline
+                >
+                    <source src={videoSrc} type="video/mp4" />
+                    Your browser does not support the video tag.
+                </video>
+
+                <!-- Play/Pause button overlay -->
+                <button
+                    id="video-control"
+                    class="absolute bottom-8 right-8 bg-white/90 hover:bg-white text-red-600 p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+                    aria-label="Play/Pause video"
+                >
+                    <svg
+                        id="pause-icon"
+                        class="w-6 h-6"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                    >
+                        <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"></path>
+                    </svg>
+                    <svg
+                        id="play-icon"
+                        class="w-6 h-6 hidden"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                    >
+                        <path d="M8 5v14l11-7z"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Right Half: Text Content with Red Background -->
+        <div
+            class="w-full md:w-1/2 flex px-8 sm:px-12 lg:px-16 xl:px-20 py-12 md:py-16"
+            style="background: linear-gradient(to bottom right, #D43F31, #C62828);"
+        >
+            <div class="max-w-xl space-y-8 w-full">
+                <div>
+                    <h2
+                        class="text-3xl md:text-4xl font-normal text-white leading-tight mb-2"
+                    >
+                        How our expert service works
+                    </h2>
+                </div>
+
+                <!-- Service Steps -->
+                <div class="space-y-6">
+                    <!-- Consultation -->
+                    <div class="flex items-start gap-4">
+                        <div
+                            class="flex-shrink-0 w-12 h-12 flex items-center justify-center"
+                        >
+                            <svg
+                                class="w-10 h-10 text-white"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="1.5"
+                                    d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                                ></path>
+                            </svg>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-normal text-white mb-2">
+                                Consultation
+                            </h3>
+                            <p class="text-white/90 text-sm leading-relaxed">
+                                We take the time to understand your business
+                                before creating the right sign for your space.
+                                We're happy to meet you on site or at our
+                                showroom.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Design & Production -->
+                    <div class="flex items-start gap-4">
+                        <div
+                            class="flex-shrink-0 w-12 h-12 flex items-center justify-center"
+                        >
+                            <svg
+                                class="w-10 h-10 text-white"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="1.5"
+                                    d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"
+                                ></path>
+                            </svg>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-semibold text-white mb-2">
+                                Design & Production
+                            </h3>
+                            <p class="text-white/90 text-sm leading-relaxed">
+                                Each sign is designed and crafted at your local
+                                location by our Graphic Designers and expert
+                                production team.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Project Management -->
+                    <div class="flex items-start gap-4">
+                        <div
+                            class="flex-shrink-0 w-12 h-12 flex items-center justify-center"
+                        >
+                            <svg
+                                class="w-10 h-10 text-white"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="1.5"
+                                    d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"
+                                ></path>
+                            </svg>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-semibold text-white mb-2">
+                                Project Management
+                            </h3>
+                            <p class="text-white/90 text-sm leading-relaxed">
+                                A dedicated account manager keeps you informed
+                                every step of the way, providing personal
+                                service and ensuring a hassle-free process.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Installation & Fulfilment -->
+                    <div class="flex items-start gap-4">
+                        <div
+                            class="flex-shrink-0 w-12 h-12 flex items-center justify-center"
+                        >
+                            <svg
+                                class="w-10 h-10 text-white"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="1.5"
+                                    d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"
+                                ></path>
+                            </svg>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-semibold text-white mb-2">
+                                Installation & Fulfilment
+                            </h3>
+                            <p class="text-white/90 text-sm leading-relaxed">
+                                We will contact you to arrange collection or to
+                                schedule a time for our specialists to install
+                                your sign.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    const video = document.getElementById("banner-video") as HTMLVideoElement;
+    const videoControl = document.getElementById("video-control");
+    const playIcon = document.getElementById("play-icon");
+    const pauseIcon = document.getElementById("pause-icon");
+
+    videoControl?.addEventListener("click", () => {
+        if (video.paused) {
+            video.play();
+            playIcon?.classList.add("hidden");
+            pauseIcon?.classList.remove("hidden");
+        } else {
+            video.pause();
+            playIcon?.classList.remove("hidden");
+            pauseIcon?.classList.add("hidden");
+        }
+    });
+</script>

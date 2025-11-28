@@ -1,0 +1,397 @@
+---
+// Indoor Signs Gallery Images
+import neon1 from "../assets/folder_pages/INDOOR SIGNS/Neon Signs/WhatsApp Image 2023-07-24 at 1.20.26 PM.jpeg";
+import neon2 from "../assets/folder_pages/INDOOR SIGNS/Neon Signs/WhatsApp Image 2023-07-25 at 11.17.49 AM.jpeg";
+import neon3 from "../assets/folder_pages/INDOOR SIGNS/Neon Signs/WhatsApp Image 2023-07-25 at 11.31.47 AM (1).jpeg";
+import neon4 from "../assets/folder_pages/INDOOR SIGNS/Neon Signs/WhatsApp Image 2023-07-25 at 11.31.47 AM.jpeg";
+import wayfinding1 from "../assets/folder_pages/INDOOR SIGNS/Wayfinding Signage/Cover-GPL-1-1.jpg";
+import wayfinding2 from "../assets/folder_pages/INDOOR SIGNS/Wayfinding Signage/How-Kochi-Ithile-Wayfinding-Signages-Improved-Public-Access-Through-Information-Systems_Main-image.jpg";
+import wayfinding3 from "../assets/folder_pages/INDOOR SIGNS/Wayfinding Signage/INTERNAL4.jpg";
+import led1 from "../assets/folder_pages/INDOOR SIGNS/LED Backlit Signs/WhatsApp Image 2023-07-25 at 11.17.46 AM (1).jpeg";
+import led2 from "../assets/folder_pages/INDOOR SIGNS/LED Backlit Signs/WhatsApp Image 2023-07-25 at 11.17.47 AM.jpeg";
+import wallGraphics from "../assets/folder_pages/INDOOR SIGNS/Wall Graphics/WhatsApp Image 2023-07-25 at 11.17.44 AM (3).jpeg";
+import reception from "../assets/folder_pages/INDOOR SIGNS/Reception Signs/WhatsApp Image 2023-07-25 at 11.17.38 AM.jpeg";
+import vinyl from "../assets/folder_pages/INDOOR SIGNS/Vinyl Lettering/vinyl-printing-hyderabad2.jpg";
+
+const categories = [
+    {
+        id: "neon-signs",
+        label: "Neon Signs",
+        images: [neon1.src, neon2.src, neon3.src, neon4.src],
+        altTexts: [
+            "Neon Sign Installation",
+            "Custom Neon Sign",
+            "Illuminated Neon Signage",
+            "Neon Sign Display",
+        ],
+    },
+    {
+        id: "wayfinding",
+        label: "Wayfinding",
+        images: [wayfinding1.src, wayfinding2.src, wayfinding3.src],
+        altTexts: [
+            "Wayfinding Signage System",
+            "Directional Wayfinding Signs",
+            "Interior Wayfinding",
+        ],
+    },
+    {
+        id: "led-backlit",
+        label: "LED & Backlit",
+        images: [
+            led1.src,
+            led2.src,
+            wallGraphics.src,
+            reception.src,
+            vinyl.src,
+        ],
+        altTexts: [
+            "LED Backlit Sign",
+            "LED Backlit Reception Sign",
+            "Wall Graphics & Murals",
+            "Reception Area Signage",
+            "Vinyl Lettering",
+        ],
+    },
+];
+---
+
+<section class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row gap-12">
+            <!-- Left Side: Heading -->
+            <div class="md:w-[30%] flex items-start pt-8">
+                <div class="top-24">
+                    <h2
+                        class="text-4xl font-normal text-gray-900 tracking-tight mb-4"
+                    >
+                        Indoor Signs
+                    </h2>
+                    <p class="text-lg text-gray-600 max-w-xs">
+                        Transform your interior spaces with professional indoor
+                        signage. From vibrant neon signs to elegant wayfinding
+                        systems and LED backlit displays.
+                    </p>
+                    <div class="w-20 h-1 bg-indigo-600 mt-6"></div>
+                </div>
+            </div>
+
+            <!-- Right Side: Tabs and Image Grid -->
+            <div class="md:w-[70%]">
+                <!-- Tabs Navigation -->
+                <div
+                    class="flex space-x-4 mb-8 overflow-x-auto pb-2 border-b border-gray-200"
+                >
+                    {
+                        categories.map((category, index) => (
+                            <button
+                                class={`interior-tab-button px-4 py-2 text-sm font-normal rounded-t-lg transition-colors duration-200 focus:outline-none whitespace-nowrap ${index === 0 ? "text-indigo-600 border-b-2 border-indigo-600 bg-indigo-50" : "text-gray-500 hover:text-gray-700 hover:bg-gray-100"}`}
+                                data-target={category.id}
+                            >
+                                {category.label}
+                            </button>
+                        ))
+                    }
+                </div>
+
+                <!-- Tab Contents -->
+                <div class="relative h-[600px] overflow-hidden">
+                    {
+                        categories.map((category, index) => (
+                            <div
+                                id={category.id}
+                                class={`interior-tab-content absolute inset-0 transition-opacity duration-300 ${index === 0 ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
+                            >
+                                <div class="flex overflow-x-auto snap-x snap-mandatory sm:grid sm:grid-cols-2 md:grid-cols-3 gap-6 pb-4 sm:pb-0 hide-scrollbar">
+                                    {category.images.map((image, imgIndex) => (
+                                        <div
+                                            class="group relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 aspect-[4/3] cursor-pointer interior-gallery-image flex-shrink-0 w-[85vw] sm:w-auto snap-center"
+                                            data-category={category.id}
+                                            data-index={imgIndex}
+                                        >
+                                            <img
+                                                src={image}
+                                                alt={
+                                                    category.altTexts[imgIndex]
+                                                }
+                                                class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                                            />
+                                            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 flex items-center justify-center">
+                                                <svg
+                                                    class="w-12 h-12 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                                                    fill="none"
+                                                    stroke="currentColor"
+                                                    viewBox="0 0 24 24"
+                                                >
+                                                    <path
+                                                        stroke-linecap="round"
+                                                        stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"
+                                                    />
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        ))
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal/Lightbox -->
+    <div
+        id="interior-modal"
+        class="fixed inset-0 bg-black/90 z-50 hidden items-center justify-center p-4"
+    >
+        <button
+            id="close-modal"
+            class="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors z-10"
+        >
+            <svg
+                class="w-8 h-8"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+            >
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
+
+        <button
+            id="prev-image"
+            class="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 transition-colors bg-black/50 hover:bg-black/70 p-3 rounded-full"
+        >
+            <svg
+                class="w-8 h-8"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+            >
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M15 19l-7-7 7-7"></path>
+            </svg>
+        </button>
+
+        <button
+            id="next-image"
+            class="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 transition-colors bg-black/50 hover:bg-black/70 p-3 rounded-full"
+        >
+            <svg
+                class="w-8 h-8"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+            >
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"></path>
+            </svg>
+        </button>
+
+        <div
+            class="max-w-6xl max-h-[90vh] w-full h-full flex flex-col items-center justify-center"
+        >
+            <img
+                id="modal-image"
+                src=""
+                alt=""
+                class="max-w-full max-h-full object-contain rounded-lg"
+            />
+            <p id="modal-caption" class="text-white text-center mt-4 text-lg">
+            </p>
+        </div>
+    </div>
+</section>
+
+<script>
+    // Tab switching functionality
+    const interiorTabButtons = document.querySelectorAll(
+        ".interior-tab-button",
+    );
+    const interiorTabContents = document.querySelectorAll(
+        ".interior-tab-content",
+    );
+
+    interiorTabButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+            const targetId = button.getAttribute("data-target");
+
+            // Update button active state
+            interiorTabButtons.forEach((btn) => {
+                if (btn === button) {
+                    btn.classList.add(
+                        "text-indigo-600",
+                        "border-b-2",
+                        "border-indigo-600",
+                        "bg-indigo-50",
+                    );
+                    btn.classList.remove(
+                        "text-gray-500",
+                        "hover:text-gray-700",
+                        "hover:bg-gray-100",
+                    );
+                } else {
+                    btn.classList.remove(
+                        "text-indigo-600",
+                        "border-b-2",
+                        "border-indigo-600",
+                        "bg-indigo-50",
+                    );
+                    btn.classList.add(
+                        "text-gray-500",
+                        "hover:text-gray-700",
+                        "hover:bg-gray-100",
+                    );
+                }
+            });
+
+            // Toggle visibility using opacity only
+            interiorTabContents.forEach((content) => {
+                if (content.id === targetId) {
+                    content.classList.remove("opacity-0");
+                    content.classList.add("opacity-100");
+                    content.classList.remove("pointer-events-none");
+                    content.classList.add("pointer-events-auto");
+                } else {
+                    content.classList.remove("opacity-100");
+                    content.classList.add("opacity-0");
+                    content.classList.remove("pointer-events-auto");
+                    content.classList.add("pointer-events-none");
+                }
+            });
+        });
+    });
+
+    // Modal functionality
+    const galleryImages = document.querySelectorAll(".interior-gallery-image");
+    const modal = document.getElementById("interior-modal");
+    const modalImage = document.getElementById(
+        "modal-image",
+    ) as HTMLImageElement;
+    const modalCaption = document.getElementById("modal-caption");
+    const closeBtn = document.getElementById("close-modal");
+    const prevBtn = document.getElementById("prev-image");
+    const nextBtn = document.getElementById("next-image");
+
+    // Build images array from all categories
+    const categories = [
+        {
+            id: "neon-signs",
+            images: [] as { src: string; alt: string }[],
+        },
+        {
+            id: "wayfinding",
+            images: [] as { src: string; alt: string }[],
+        },
+        {
+            id: "led-backlit",
+            images: [] as { src: string; alt: string }[],
+        },
+    ];
+
+    galleryImages.forEach((imgContainer) => {
+        const imgElement = imgContainer.querySelector(
+            "img",
+        ) as HTMLImageElement;
+        const category = imgContainer.getAttribute("data-category");
+        const categoryObj = categories.find((c) => c.id === category);
+        if (categoryObj && imgElement) {
+            categoryObj.images.push({
+                src: imgElement.src,
+                alt: imgElement.alt,
+            });
+        }
+    });
+
+    let currentCategory = "neon-signs";
+    let currentIndex = 0;
+
+    function openModal(category: string, index: number) {
+        currentCategory = category;
+        currentIndex = index;
+        updateModalImage();
+        modal?.classList.remove("hidden");
+        modal?.classList.add("flex");
+        document.body.style.overflow = "hidden";
+    }
+
+    function closeModal() {
+        modal?.classList.add("hidden");
+        modal?.classList.remove("flex");
+        document.body.style.overflow = "";
+    }
+
+    function updateModalImage() {
+        const categoryObj = categories.find((c) => c.id === currentCategory);
+        if (
+            modalImage &&
+            modalCaption &&
+            categoryObj &&
+            categoryObj.images[currentIndex]
+        ) {
+            modalImage.src = categoryObj.images[currentIndex].src;
+            modalImage.alt = categoryObj.images[currentIndex].alt;
+            modalCaption.textContent = categoryObj.images[currentIndex].alt;
+        }
+    }
+
+    function showPrevImage() {
+        const categoryObj = categories.find((c) => c.id === currentCategory);
+        if (categoryObj) {
+            currentIndex =
+                (currentIndex - 1 + categoryObj.images.length) %
+                categoryObj.images.length;
+            updateModalImage();
+        }
+    }
+
+    function showNextImage() {
+        const categoryObj = categories.find((c) => c.id === currentCategory);
+        if (categoryObj) {
+            currentIndex = (currentIndex + 1) % categoryObj.images.length;
+            updateModalImage();
+        }
+    }
+
+    // Event listeners for gallery images
+    galleryImages.forEach((img) => {
+        img.addEventListener("click", () => {
+            const category = img.getAttribute("data-category") || "neon-signs";
+            const index = parseInt(img.getAttribute("data-index") || "0");
+            openModal(category, index);
+        });
+    });
+
+    closeBtn?.addEventListener("click", closeModal);
+    prevBtn?.addEventListener("click", showPrevImage);
+    nextBtn?.addEventListener("click", showNextImage);
+
+    // Close modal on background click
+    modal?.addEventListener("click", (e) => {
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
+
+    // Keyboard navigation
+    document.addEventListener("keydown", (e) => {
+        if (!modal?.classList.contains("hidden")) {
+            if (e.key === "Escape") closeModal();
+            if (e.key === "ArrowLeft") showPrevImage();
+            if (e.key === "ArrowRight") showNextImage();
+        }
+    });
+</script>
