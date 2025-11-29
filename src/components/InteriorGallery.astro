@@ -1,9 +1,8 @@
 ---
-// Indoor Signs Gallery Images
-import neon1 from "../assets/folder_pages/INDOOR SIGNS/Neon Signs/WhatsApp Image 2023-07-24 at 1.20.26 PM.jpeg";
-import neon2 from "../assets/folder_pages/INDOOR SIGNS/Neon Signs/WhatsApp Image 2023-07-25 at 11.17.49 AM.jpeg";
-import neon3 from "../assets/folder_pages/INDOOR SIGNS/Neon Signs/WhatsApp Image 2023-07-25 at 11.31.47 AM (1).jpeg";
-import neon4 from "../assets/folder_pages/INDOOR SIGNS/Neon Signs/WhatsApp Image 2023-07-25 at 11.31.47 AM.jpeg";
+// Indoor Signs Gallery Imagess
+import roomdoor1 from "../assets/folder_pages/INDOOR SIGNS/Room  Door Signs/DoorSign1-300x300.jpg";
+import roomdoor2 from "../assets/folder_pages/INDOOR SIGNS/Room  Door Signs/7f80c946d59358317b9dacaf92413340.jpg";
+import roomdoor3 from "../assets/folder_pages/INDOOR SIGNS/Room  Door Signs/fee1d298390a4536d9e4066c4eb90822.jpg";
 import wayfinding1 from "../assets/folder_pages/INDOOR SIGNS/Wayfinding Signage/Cover-GPL-1-1.jpg";
 import wayfinding2 from "../assets/folder_pages/INDOOR SIGNS/Wayfinding Signage/How-Kochi-Ithile-Wayfinding-Signages-Improved-Public-Access-Through-Information-Systems_Main-image.jpg";
 import wayfinding3 from "../assets/folder_pages/INDOOR SIGNS/Wayfinding Signage/INTERNAL4.jpg";
@@ -14,27 +13,6 @@ import reception from "../assets/folder_pages/INDOOR SIGNS/Reception Signs/Whats
 import vinyl from "../assets/folder_pages/INDOOR SIGNS/Vinyl Lettering/vinyl-printing-hyderabad2.jpg";
 
 const categories = [
-    {
-        id: "neon-signs",
-        label: "Neon Signs",
-        images: [neon1.src, neon2.src, neon3.src, neon4.src],
-        altTexts: [
-            "Neon Sign Installation",
-            "Custom Neon Sign",
-            "Illuminated Neon Signage",
-            "Neon Sign Display",
-        ],
-    },
-    {
-        id: "wayfinding",
-        label: "Wayfinding",
-        images: [wayfinding1.src, wayfinding2.src, wayfinding3.src],
-        altTexts: [
-            "Wayfinding Signage System",
-            "Directional Wayfinding Signs",
-            "Interior Wayfinding",
-        ],
-    },
     {
         id: "led-backlit",
         label: "LED & Backlit",
@@ -51,6 +29,22 @@ const categories = [
             "Wall Graphics & Murals",
             "Reception Area Signage",
             "Vinyl Lettering",
+        ],
+    },
+    {
+        id: "RoomDoorSigns",
+        label: "Room Door Signs",
+        images: [roomdoor1.src, roomdoor2.src, roomdoor3.src],
+        altTexts: ["room door sign", "room door sign", "room door sign"],
+    },
+    {
+        id: "wayfinding",
+        label: "Wayfinding",
+        images: [wayfinding1.src, wayfinding2.src, wayfinding3.src],
+        altTexts: [
+            "Wayfinding Signage System",
+            "Directional Wayfinding Signs",
+            "Interior Wayfinding",
         ],
     },
 ];
@@ -95,7 +89,7 @@ const categories = [
                 </div>
 
                 <!-- Tab Contents -->
-                <div class="relative h-[350px] sm:h-[600px] overflow-hidden">
+                <div class="relative h-[350px] sm:h-[500px] overflow-hidden">
                     {
                         categories.map((category, index) => (
                             <div
